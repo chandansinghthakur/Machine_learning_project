@@ -6,7 +6,7 @@
 2. [Hiroku Account](https://dashboard.hroku.com/login)
 3. [VS Code](https://code.visualstudio.com/downloads)
 4. [GIT cli](https://git-scm.com/downloads)
-
+5. [GIT Documentation](https://git-scm.com/docs/gittutorial)
 
 # creating conda environment
 ```
