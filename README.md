@@ -84,13 +84,13 @@ To stop docker comtainer
 docker stop <container_id>
 ```
 
-'''
+```
 python setup.py install
-'''
+```
 
 Install ipykernel (Jupyter Notebook)
-'''
+```
 pip install ipykernel
-'''
+```
 
 
