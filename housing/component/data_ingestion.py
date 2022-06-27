@@ -1,4 +1,5 @@
 from email import message
+from logging import raiseExceptions
 from housing.entity.config_entity import DataIngestionConfig
 from housing.entity.artifact_entity import DataIngestionArtifact
 import sys,os
@@ -16,6 +17,7 @@ class DataIngestion:
 
     def __init__(self,data_ingestion_config:DataIngestionConfig ):
         try:
+            # raise Exception("Testing excepyion.")
             logging.info(f"{'='*20}Data Ingestion log started.{'='*20} ")
             self.data_ingestion_config = data_ingestion_config
 

@@ -68,7 +68,12 @@ class Configuration:
             raise HousingException(e,sys) from e
     
     def get_data_validation_config(self) -> DataValidationConfig:
-        pass
+        try:
+            schema_file_path=None
+            data_validation_config = DataValidationConfig(schema_file_path=schema_file_path)
+            
+        except Exception as e:
+            raise HousingException(e,sys) from e
     
     def get_data_transformation_config(self) -> DataTransformationConfig:
         pass
