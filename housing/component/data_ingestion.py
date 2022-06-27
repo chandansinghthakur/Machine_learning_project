@@ -58,7 +58,7 @@ class DataIngestion:
             if os.makedirs(raw_data_dir, exist_ok=True):
                 os.remove(raw_data_dir)
             
-            os.amkedirs(raw_data_dir, exist_ok=True)
+            os.makedirs(raw_data_dir, exist_ok=True)
             
             logging.info(f"Extracting {tgz_file_path} into {raw_data_dir} into directory {raw_data_dir}")
             with tarfile.open(tgz_file_path) as housing_tgz_file_obj:
@@ -84,7 +84,7 @@ class DataIngestion:
             
             housing_data_frame["income_cat"] = pd.cut(housing_data_frame["median_income"],
                                                       bins=[0,1.5,3.0,4.5,6.0,np.inf],
-                                                      labels=["0","1","2","3","4","5"])
+                                                      labels=["1","2","3","4","5"])
             
             logging.info(f"Splitting data into train and test")
             strat_train_set = None
@@ -96,8 +96,8 @@ class DataIngestion:
                 strat_train_set = housing_data_frame.loc[train_index].drop(["income_cat"],axis=1)
                 strat_test_set = housing_data_frame.loc[test_index].drop(["income_cat"],axis=1)
                 
-            train_file_path = os.path.join(self.data_ingestion_config.train_data_dir,file_name)
-            test_file_path = os.path.join(self.data_ingestion_config.test_data_dir,file_name)
+            train_file_path = os.path.join(self.data_ingestion_config.ingested_train_dir,file_name)
+            test_file_path = os.path.join(self.data_ingestion_config.ingested_test_dir,file_name)
             
             if strat_train_set is not None:
                 os.makedirs(self.data_ingestion_config.ingested_train_dir, exist_ok=True)
@@ -111,7 +111,7 @@ class DataIngestion:
                 
             Data_ingestion_artifact = DataIngestionArtifact(train_file_path=train_file_path,
                                                             test_file_path=test_file_path,
-                                                            is_ingedted=True,
+                                                            is_ingested=True,
                                                             message=f"Data Ingestion completed successfully.")
             
             logging.info(f"Data Ingestion artifact: [{Data_ingestion_artifact}]")
@@ -129,5 +129,7 @@ class DataIngestion:
             raise HousingException(e,sys) from e
         
         
-        def __del__(self):
-            logging.info(f"{'='*20} Data Ingestion completed successfully. {'='*20} \n\n")
+    def __del__(self):
+        logging.info(f"{'='*20} Data Ingestion completed successfully. {'='*20} \n\n")
+            
+        
