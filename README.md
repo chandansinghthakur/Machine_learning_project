@@ -93,4 +93,10 @@ Install ipykernel (Jupyter Notebook)
 pip install ipykernel
 ```
 
+## DATA DRIFT :
+When your dataset stats gets change we call it as data drift.
 
+Installing evidently library
+```
+pip install evidently
+```

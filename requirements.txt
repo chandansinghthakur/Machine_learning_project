@@ -3,4 +3,7 @@ gunicorn
 sklearn
 pandas
 numpy
+PyYAML
+evidently
+dill
 -e .
