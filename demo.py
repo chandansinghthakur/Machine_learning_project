@@ -7,7 +7,9 @@ from housing.component.data_transformation import DataTransformation
 def main():
     try:
         pipeline = Pipeline()
-        pipeline.run_pipeline()
+        # pipeline.run_pipeline()
+        pipeline.start()
+        logging.info("main function execution completed")
         # data_transformation_config = Configuration().get_data_transformation_config()
         # print(data_transformation_config)
         # schema_file_path = r"E:\Machine Learning\machine learning pipeline\Machine_learning_project\config\schema.yaml"
