@@ -1,3 +1,4 @@
+
 from housing.exception import HousingException
 import sys
 from housing.logger import logging
@@ -86,7 +87,7 @@ class ModelTrainer:
 
             logging.info(f"Best found model on both training and testing dataset.")
             
-            preprocessing_obj=  load_object(file_path=self.data_transformation_artifact.preprocessed_objects_file_path)
+            preprocessing_obj=  load_object(file_path=self.data_transformation_artifact.preprocessed_object_file_path)
             model_object = metric_info.model_object
 
 

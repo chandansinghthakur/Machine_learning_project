@@ -48,18 +48,21 @@ def evaluate_regression_model(model_list: list, X_train:np.ndarray, y_train:np.n
     """
     Description:
     This function compare multiple regression model return best model
+
     Params:
     model_list: List of model
     X_train: Training dataset input feature
     y_train: Training dataset target feature
     X_test: Testing dataset input feature
     y_test: Testing dataset input feature
+
     return
     It retured a named tuple
     
     MetricInfoArtifact = namedtuple("MetricInfo",
                                 ["model_name", "model_object", "train_rmse", "test_rmse", "train_accuracy",
                                  "test_accuracy", "model_accuracy", "index_number"])
+
     """
     try:
         

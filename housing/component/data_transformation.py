@@ -94,7 +94,7 @@ class DataTransformation:
                  data_validation_artifact: DataValidationArtifact
                  ):
         try:
-            logging.info(f"{'=' * 20}Data Transformation log started.{'=' * 20} ")
+            logging.info(f"{'>>' * 30}Data Transformation log started.{'<<' * 30} ")
             self.data_transformation_config= data_transformation_config
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_artifact = data_validation_artifact
@@ -199,7 +199,7 @@ class DataTransformation:
             save_numpy_array_data(file_path=transformed_train_file_path,array=train_arr)
             save_numpy_array_data(file_path=transformed_test_file_path,array=test_arr)
 
-            preprocessing_obj_file_path = self.data_transformation_config.preprocessed_objects_file_path
+            preprocessing_obj_file_path = self.data_transformation_config.preprocessed_object_file_path
 
             logging.info(f"Saving preprocessing object.")
             save_object(file_path=preprocessing_obj_file_path,obj=preprocessing_obj)
@@ -208,7 +208,7 @@ class DataTransformation:
             message="Data transformation successfull.",
             transformed_train_file_path=transformed_train_file_path,
             transformed_test_file_path=transformed_test_file_path,
-            preprocessed_objects_file_path=preprocessing_obj_file_path
+            preprocessed_object_file_path=preprocessing_obj_file_path
 
             )
             logging.info(f"Data transformationa artifact: {data_transformation_artifact}")
@@ -217,4 +217,4 @@ class DataTransformation:
             raise HousingException(e,sys) from e
 
     def __del__(self):
-        logging.info(f"{'='*20}Data Transformation log completed.{'='*20} \n\n")
+        logging.info(f"{'>>'*30}Data Transformation log completed.{'<<'*30} \n\n")

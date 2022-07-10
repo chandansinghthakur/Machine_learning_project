@@ -109,3 +109,4 @@ def load_data(file_path: str, schema_file_path: str) -> pd.DataFrame:
 
     except Exception as e:
         raise HousingException(e,sys) from e
+    
